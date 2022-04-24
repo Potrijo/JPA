@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\marck\eclipse-JPA\Jpa1"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
