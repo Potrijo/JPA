@@ -40,10 +40,38 @@ public class Jpa1 {
 		 manager.getTransaction().commit();
 	 }
 
+	 public static void merge(){
+		 //Query Libro by ID
+		 //Open Transaction
+		 manager.getTransaction().begin();
+		 //Set Libro
+		 Libros libro = new Libros();
+		 libro.setId(10);
+		 libro.setTitulo("Libro de prueba");
+		 libro.setAutor("Nuevo autor");
+		 //Update Libro
+		 manager.merge(libro);
+		 //Commit changes
+		 manager.getTransaction().commit();
+		 }
+	 
+	 public static void remove(){
+		 //Query Libro by ID
+		 Libros libro = manager.find(Libros.class, 10);
+		 //Open transaction
+		 manager.getTransaction().begin();
+		 //Delete Libro
+		 manager.remove(libro);
+		 //Commit transaction
+		 manager.getTransaction().commit();
+		 }
+
 	
 	public static void main(String[] args) {
 		tearUp();
-		persist();
+		//persist(); // crea los campos
+		//merge(); // actualiza los campos
+		remove();
 		find();
 		tearDown();
 	}
